@@ -1,28 +1,50 @@
-const testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8];
-const testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55];
+function selectionSort(input){
+  // insertion
+  // for(let i=1; i<input.length; i++){
+  //   for(let j=0; j<=i-1; j++){
+  //     let front = input[j];
+  //     let back = input[i];
+  //     if(input[i]<input[j]){
+  //       input[i] = front;
+  //       input[j] = back;
+  //     }
+  //   }
+  // }
+  // return input;
 
-function ownSort(arr) {
-  // Your sorting code
-  return arr;
+  //selection
+  // for(let i=0; i<input.length; i++){
+  //   let lowestNumber = input[i];
+  //   for(let j=i+1; j<input.length; j++){
+  //     var indexForSwap;
+  //     if(input[j]<lowestNumber){
+  //       lowestNumber = input[j];
+  //       indexForSwap = j;
+  //     }
+  //   }
+  //   if(lowestNumber!==input[i]){
+  //     input[indexForSwap] = input[i];
+  //     input[i] = lowestNumber;
+  //   }
+  // }
+  // return input;
+
+  //bubble
+  var swapped;
+  do{
+    swapped = false;
+    for(let i=0; i<input.length; i++){
+      let front = input[i];
+      let back = input[i+1];
+      if(input[i+1]<input[i]){
+        input[i+1] = front;
+        input[i] = back;
+        swapped = true;
+      }
+    }
+  } while(swapped)
+  return input;
 }
 
-function binarySearch(search, array) {
-  // Your searching code
-  return 0;
-}
-
-const arrayGenapSorted = ownSort(testArrayGenap);
-const arrayGanjilSorted = ownSort(testArrayGanjil);
-
-// Driver code
-console.log(binarySearch(8, arrayGenapSorted));
-console.log(binarySearch(10, arrayGenapSorted));
-console.log(binarySearch(33, arrayGenapSorted));
-
-console.log(binarySearch(53, arrayGanjilSorted));
-console.log(binarySearch(3, arrayGanjilSorted));
-console.log(binarySearch(2, arrayGanjilSorted));
-
-module.exports = {
-  binary_search
-};
+console.log(selectionSort([33,2,52,106,73,5,16]))
+// console.log(selectionSort([13,5,22,99,11]))
