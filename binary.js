@@ -25,12 +25,23 @@ function ownSort(arr) {
 
 function binarySearch(search, array) {
   // Your searching code
-  for(let i=0; i<array.length; i++){
-    if(array[i] == search){
-      return i
+  let min = 0
+  let max = array.length - 1
+  
+  while(min <= max){
+    let mid = Math.floor((max + min)/2)
+    
+    if(array[mid] == search){
+      return mid
+    }
+    else if(array[mid] > search){
+      max = mid - 1
+    }
+    else{
+      min = mid + 1
     }
   }
-  return 0;
+  return -1
 }
 
 const arrayGenapSorted = ownSort(testArrayGenap);
