@@ -2,7 +2,7 @@ const testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8];
 const testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55];
 
 function ownSort(arr) {
-  // Your sorting code
+  // Your searching code
   return arr;
 }
 
