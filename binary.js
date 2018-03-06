@@ -3,26 +3,60 @@ const testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55];
 
 function ownSort(arr) {
   // Your sorting code
+  let minIdx = ''
+  let sorted = []
+  for(let i=0; i<arr.length; i++){
+    minIdx = i
+    // console.log(minIdx)
+    for(let j=i+1; j<arr.length; j++){
+        if(arr[j] < arr[minIdx]){
+          minIdx = j
+          // console.log('=====',minIdx)
+        }
+    }
+    sorted = arr[i]
+    arr[i] = arr[minIdx]
+    arr[minIdx] = sorted
+  }
+  console.log(arr)
   return arr;
 }
 
+
 function binarySearch(search, array) {
   // Your searching code
-  return 0;
+  let min = 0
+  let max = array.length - 1
+  
+  while(min <= max){
+    let mid = Math.floor((max + min)/2)
+    
+    if(array[mid] == search){
+      return mid
+    }
+    else if(array[mid] > search){
+      max = mid - 1
+    }
+    else{
+      min = mid + 1
+    }
+  }
+  return -1
 }
 
 const arrayGenapSorted = ownSort(testArrayGenap);
 const arrayGanjilSorted = ownSort(testArrayGanjil);
 
+console.log('====SEARCH====')
 // Driver code
-console.log(binarySearch(8, arrayGenapSorted));
-console.log(binarySearch(10, arrayGenapSorted));
+console.log('index ke : ',binarySearch(8, arrayGenapSorted));
+console.log('index ke : ',binarySearch(10, arrayGenapSorted));
 console.log(binarySearch(33, arrayGenapSorted));
 
-console.log(binarySearch(53, arrayGanjilSorted));
-console.log(binarySearch(3, arrayGanjilSorted));
+console.log('index ke : ',binarySearch(53, arrayGanjilSorted));
+console.log('index ke : ',binarySearch(3, arrayGanjilSorted));
 console.log(binarySearch(2, arrayGanjilSorted));
 
 module.exports = {
-  binary_search
+  binarySearch
 };
