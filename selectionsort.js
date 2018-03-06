@@ -1,28 +1,27 @@
+// SWAP METHOD
 function selectionsort(arrInput) {
-    // console.log(arrInput[0]);
-    let arrSortResult = [];
-
-    while (arrInput.length > 0) {
-        let index = findIndexMin(arrInput); // 1
-        arrSortResult.push(arrInput[index]);
-        arrInput.splice(index,1);
-    }
-
-    return arrSortResult;
-
-    function findIndexMin(arrInput) {
-        let Min = arrInput[0];
+    for (let j = 0; j < arrInput.length; j++) {
+        // console.log(j,arrInput[j])
         let IndexMin = 0;
-        for (let i = 0; i < arrInput.length; i++) {
+        let Min = arrInput[j];
+        for (let i = j+1; i < arrInput.length; i++) {
+            // console.log(Min, arrInput[i]);
             if (arrInput[i] < Min) {
                 Min = arrInput[i];
                 IndexMin = i;
             }
         }
-        return IndexMin;
-    } 
-    // console.log(findIndexMin(arrInput)); // index:1,min:2
-
+        // console.log(j,'Min',Min);
+        // console.log(j,'Index',IndexMin);
+        // console.log(arrInput[j])
+        
+        if(Min != arrInput[j]){
+            arrInput[IndexMin] = arrInput[j];
+            arrInput[j] = Min;
+        }
+        // console.log(arrInput);   
+    }
+    return arrInput;
 }
 
 let test1 = [33,2,52,106,73];
