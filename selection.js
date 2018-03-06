@@ -11,17 +11,27 @@
 
 function selectionSort(arr){
 
-  for(let h = 0; h < arr.length; h++){
-      for(let i = h; i < arr.length; i++){
-        if(arr[h] > arr[i]){
-            let minValue = arr[h];
-            arr[h] = arr[i];
-            arr[i] = minValue;
-        }
+  var currentNum = 0;
+  for(let i = 0; i < arr.length; i++){
+      var indexj = 0;
+      currentNum = arr[i];
+      for(let j = i; j < arr.length; j++){
+
+          if(currentNum > arr[j]){
+              currentNum = arr[j];
+              indexJ = j;
+          }
+          //console.log(arr);
+      }
+      //console.log('Index ke:'+indexJ+' valuenya: '+currentNum);
+      //console.log(arr);
+      if(currentNum !== arr[i]){
+        let temp = arr[i];
+        arr[i] = arr[indexJ];
+        arr[indexJ] = temp;
       }
 
   }
-
   return arr;
 
 }
