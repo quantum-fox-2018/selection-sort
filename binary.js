@@ -9,6 +9,7 @@ function selectionSort(arr) {
         min = j
       }
     }
+    // console.log(min)
 
     var tmp = arr[i];
     arr[i] = arr[min];
